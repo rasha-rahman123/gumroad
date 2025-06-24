@@ -380,8 +380,7 @@ class Purchase < ApplicationRecord
             4 => :is_preorder_authorization,
             5 => :is_multi_buy,
             6 => :is_gift_receiver_purchase,
-            7 => :is_gift_sender_purchase,
-            8 => :DEPRECATED_credit_card_zipcode_required,
+                        7 => :is_gift_sender_purchase,
             9 => :was_product_recommended,
             10 => :chargeback_reversed,
             11 => :was_zipcode_check_performed,
@@ -2008,7 +2007,7 @@ class Purchase < ApplicationRecord
       json_data[:product_updates_data] = update_json_data_for_mobile
       json_data[:user_id] = purchaser.external_id if purchaser
       json_data[:is_archived] = is_archived
-      json_data[:custom_delivery_url] = nil # Deprecated
+
     end
 
     if subscription.present?

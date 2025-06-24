@@ -576,7 +576,6 @@ class Link < ApplicationRecord
         "recommendable" => recommendable?,
         "rated_as_adult" => rated_as_adult?,
       )
-      json["custom_delivery_url"] = nil # Deprecated
       if preorder_link.present?
         json.merge!(
           "is_preorder" => true,
@@ -1405,7 +1404,6 @@ class Link < ApplicationRecord
       end
 
       if options[:api_scopes].include?("view_sales")
-        json["custom_delivery_url"] = nil # Deprecated
         json["sales_count"] = successful_sales_count
         json["sales_usd_cents"] = total_usd_cents
       end

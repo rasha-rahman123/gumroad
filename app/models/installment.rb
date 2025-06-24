@@ -83,10 +83,6 @@ class Installment < ApplicationRecord
   validate :shown_on_profile_only_for_confirmed_users, if: :shown_on_profile_changed?
 
   has_flags 1 => :is_unpublished_by_admin,
-            2 => :DEPRECATED_is_automated_installment,
-            3 => :DEPRECATED_stream_only,
-            4 => :DEPRECATED_is_open_rate_tracking_enabled,
-            5 => :DEPRECATED_is_click_rate_tracking_enabled,
             6 => :is_for_new_customers_of_workflow,
             7 => :workflow_installment_published_once_already,
             8 => :shown_on_profile,

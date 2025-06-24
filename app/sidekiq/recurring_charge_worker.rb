@@ -4,7 +4,7 @@ class RecurringChargeWorker
   include Sidekiq::Job
   sidekiq_options retry: 5, queue: :default, lock: :until_executed
 
-  def perform(subscription_id, ignore_consecutive_failures = false, _deprecated = nil)
+  def perform(subscription_id, ignore_consecutive_failures = false)
     ActiveRecord::Base.connection.stick_to_primary!
     SuoSemaphore.recurring_charge(subscription_id).lock do
       Rails.logger.info("Processing RecurringChargeWorker#perform(#{subscription_id})")

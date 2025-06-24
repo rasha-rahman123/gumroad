@@ -259,9 +259,8 @@ class UrlRedirect < ApplicationRecord
       result[:purchased_at] = purchase.created_at
       result[:user_id] = purchase.purchaser.external_id if purchase.purchaser
       result[:product_updates_data] = purchase.update_json_data_for_mobile
-      result[:is_archived] = purchase.is_archived
-      result[:custom_delivery_url] = nil # Deprecated
-    end
+              result[:is_archived] = purchase.is_archived
+      end
     result
   end
 

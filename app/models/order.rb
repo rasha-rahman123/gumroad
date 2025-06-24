@@ -12,8 +12,7 @@ class Order < ApplicationRecord
 
   attr_accessor :setup_future_charges
 
-  has_flags 1 => :DEPRECATED_seller_receipt_enabled,
-            column: "flags",
+  has_flags column: "flags",
             flag_query_mode: :bit_operator,
             check_for_column: false
 

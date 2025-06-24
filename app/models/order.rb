@@ -12,8 +12,7 @@ class Order < ApplicationRecord
 
   attr_accessor :setup_future_charges
 
-  has_flags
-            column: "flags",
+  has_flags column: "flags",
             flag_query_mode: :bit_operator,
             check_for_column: false
 

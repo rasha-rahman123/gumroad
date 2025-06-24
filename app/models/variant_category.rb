@@ -13,8 +13,7 @@ class VariantCategory < ApplicationRecord
   has_many :tiers, -> { alive }, class_name: "Variant"
   has_one :default_tier, -> { alive }, class_name: "Variant"
 
-  has_flags
-            :column => "flags",
+  has_flags :column => "flags",
             :flag_query_mode => :bit_operator,
             check_for_column: false
 
